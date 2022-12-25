@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { GetServerSideProps } from "next";
 import {
   ProductsListSection,
   Hero,
@@ -26,10 +25,21 @@ const Home: NextPage<Props> = ({ products }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { data: products } = await axios<ProductListInt[]>(
-    `${baseURL}/products/featured/`
-  );
+// You should use getStaticProps when:
+//- The data required to render the page is available at build time ahead of a user’s request.
+//- The data comes from a headless CMS.
+//- The data can be publicly cached (not user-specific).
+//- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance.
+import { GetStaticProps } from "next";
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  let products: ProductListInt[] = [];
+  try {
+    const res = await axios<ProductListInt[]>(`${baseURL}/products/featured/`);
+    products = res.data;
+  } catch (error) {
+    console.log(error);
+  }
 
   return {
     props: {
@@ -37,5 +47,20 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     },
   };
 };
+// export const getServerSideProps: GetServerSideProps = async (ctx) => {
+//   try {
+//     const { data: products } = await axios<ProductListInt[]>(
+//       `${baseURL}/products/featured/`
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   }
+
+//   return {
+//     props: {
+//       products,
+//     },
+//   };
+// };
 
 export default Home;

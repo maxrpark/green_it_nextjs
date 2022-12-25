@@ -45,7 +45,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         destination: "/my-profile",
       },
     };
-  } catch (error) {}
+  } catch (error) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
+  }
 
   return {
     props: {},

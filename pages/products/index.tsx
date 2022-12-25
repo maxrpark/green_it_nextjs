@@ -1,4 +1,5 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { productsFetch } from "../../axios";
 import { ProductInterface } from "../../ts/";
@@ -15,14 +16,9 @@ interface Props {
   productsList: ProductInterface[];
   totalProducts: number;
   totalNumberOfPages: number;
-  query: string;
 }
 
-const Products: NextPage<Props> = ({
-  productsList,
-  totalNumberOfPages,
-  query,
-}) => {
+const Products: NextPage<Props> = ({ productsList, totalNumberOfPages }) => {
   const {
     products,
     filters,
@@ -30,6 +26,8 @@ const Products: NextPage<Props> = ({
     setFilterOnLoad,
     updateFilters,
   } = useProductsContext();
+  const router = useRouter();
+  let query = router.query.query;
 
   const formSubmitFunc = async (value: string) => {
     setFilterOnLoad({ name: "name", value });
@@ -38,10 +36,13 @@ const Products: NextPage<Props> = ({
 
   useEffect(() => {
     productsPageInitialData({ totalNumberOfPages, productsList });
-    if (query) {
-      setFilterOnLoad({ name: "name", value: query });
-    }
   }, []);
+
+  useEffect(() => {
+    if (query) {
+      updateFilters({ name: "name", value: query as string });
+    }
+  }, [query]);
 
   if (!products) {
     return <h2>Loading</h2>;
@@ -63,18 +64,13 @@ const Products: NextPage<Props> = ({
 
 export default Products;
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { query } = ctx.query;
-
-  let querySearch = "";
-  let data = [];
-  if (query) {
-    const res = await productsFetch(`/?page=1&limit=12&name=${query}`);
-    data = res.data;
-    querySearch = query as string;
-  } else {
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  let data = { products: [], totalProducts: 0, numberOfPages: 1 };
+  try {
     const res = await productsFetch("/?page=1&limit=12");
     data = res.data;
+  } catch (error) {
+    console.log(error);
   }
 
   return {
@@ -82,7 +78,34 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       productsList: data.products,
       totalProducts: data.totalProducts,
       totalNumberOfPages: data.numberOfPages,
-      query: querySearch,
     },
   };
 };
+
+// export const getServerSideProps: GetServerSideProps = async (ctx) => {
+//   const { query } = ctx.query;
+
+//   let querySearch = "";
+//   let data = { products: [], totalProducts: 0, numberOfPages: 1 };
+//   try {
+//     if (query) {
+//       const res = await productsFetch(`/?page=1&limit=12&name=${query}`);
+//       data = res.data;
+//       querySearch = query as string;
+//     } else {
+//       const res = await productsFetch("/?page=1&limit=12");
+//       data = res.data;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+
+//   return {
+//     props: {
+//       productsList: data.products,
+//       totalProducts: data.totalProducts,
+//       totalNumberOfPages: data.numberOfPages,
+//       query: querySearch,
+//     },
+//   };
+// };
