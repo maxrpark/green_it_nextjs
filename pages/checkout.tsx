@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   try {
     const productsItems = JSON.parse(req.cookies.productItems!);
     const { data } = await axios.post(
-      `http://localhost:3000/api/orders/stripe-session`,
+      `https://green-it-server.onrender.com/api/orders/stripe-session`,
       productsItems,
       {
         withCredentials: true,

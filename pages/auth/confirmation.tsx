@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import axios from "axios";
 import { GetServerSideProps } from "next";
-import { baseURL } from "../../axios";
+
 interface Props {
   isError: boolean;
   message: string;
@@ -26,10 +26,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   let message = "";
   const { token, email } = ctx.query;
   try {
-    const res = await axios.post(`${baseURL}/auth/confirmation/`, {
-      verificationToken: token,
-      email: email,
-    });
+    const res = await axios.post(
+      `https://green-it-server.onrender.com/api/v1/auth/confirmation/`,
+      {
+        verificationToken: token,
+        email: email,
+      }
+    );
     if (res.status == 200) {
       isError = false;
       message = res.data.msg;
