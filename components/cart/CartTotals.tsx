@@ -29,7 +29,7 @@ const CartTotals: React.FC = () => {
       </div> */}
       <div className={styles["total-details"]}>
         <p>
-          Subtotal <span>${total_amount}</span>
+          Subtotal <span>$ ${total_amount}</span>
         </p>
         <p>
           Discount <span>${discount}</span>
@@ -39,7 +39,7 @@ const CartTotals: React.FC = () => {
         </p>
       </div>
       <p className={styles["order-total"]}>
-        Total <span>${total_amount - discount}</span>
+        Total <span>$ ${total_amount - discount}</span>
       </p>
       {user?.name ? (
         <button

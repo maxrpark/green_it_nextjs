@@ -10,7 +10,7 @@ const OrderTotalsDetail: React.FC<Props> = ({ total, subtotal }) => {
     <section>
       <div className={styles["total-details"]}>
         <p>
-          Subtotal <span className='text-black'>{subtotal}</span>
+          Subtotal <span className='text-black'>$ {subtotal}</span>
         </p>
         {/* <p>
           Discount <span>TODO</span>
@@ -20,7 +20,7 @@ const OrderTotalsDetail: React.FC<Props> = ({ total, subtotal }) => {
         </p> */}
       </div>
       <p className={styles["order-total"]}>
-        Total: <span>{total}</span>
+        Total: <span>$ {total}</span>
       </p>
     </section>
   );
