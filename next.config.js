@@ -8,7 +8,7 @@ const nextConfig = {
   async rewrites() {
     // return process.env.NODE_ENV === "development"
     //   ?
-    [
+    return [
       {
         source: "/api/:path*",
         destination: "https://green-it-server.onrender.com/api/v1/:path*",
