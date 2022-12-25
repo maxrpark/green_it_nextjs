@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { OrderInterface } from "../../ts/";
 import { SingleDetailRow } from "../../components";
 import { ProfileLayout } from "../../components/layout";
+import { baseURL } from "../../axios";
 
 interface Props {
   orders: OrderInterface[];
@@ -40,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   let userOrders;
   try {
     const { data } = await axios(
-      `https://green-it-server.onrender.com/api/v1/orders/user-orders/${decoded.user.userId}`,
+      `${baseURL}/orders/user-orders/${decoded.user.userId}`,
       {
         withCredentials: true,
         headers: {

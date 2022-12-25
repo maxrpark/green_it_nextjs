@@ -3,6 +3,7 @@ import axios from "axios";
 import { useCartContext } from "../../contexts";
 import { OrderDetails } from "../../ts/interfaces/globalInterfaces";
 import { CheckoutItems, OrderTotalsDetail } from "../../components";
+import { baseURL } from "../../axios";
 
 interface Props {
   orderSummary: OrderDetails;
@@ -40,15 +41,12 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   let orderSummary;
   try {
-    const { data } = await axios(
-      `http://localhost:3000/api/orders/single-order/${query.id}`,
-      {
-        withCredentials: true,
-        headers: {
-          Cookie: req.headers.cookie,
-        },
-      }
-    );
+    const { data } = await axios(`${baseURL}/orders/single-order/${query.id}`, {
+      withCredentials: true,
+      headers: {
+        Cookie: req.headers.cookie,
+      },
+    });
     orderSummary = data;
   } catch (error: any) {
     console.log(error.response.data);

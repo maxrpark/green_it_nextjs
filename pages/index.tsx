@@ -8,6 +8,7 @@ import {
 } from "../components";
 import axios from "axios";
 import { ProductListInt } from "../ts/";
+import { baseURL } from "../axios";
 
 interface Props {
   products: ProductListInt[];
@@ -27,7 +28,7 @@ const Home: NextPage<Props> = ({ products }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { data: products } = await axios<ProductListInt[]>(
-    `https://green-it-server.onrender.com/api/v1/products/featured/`
+    `${baseURL}/products/featured/`
   );
 
   return {

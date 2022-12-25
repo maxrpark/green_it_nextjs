@@ -4,6 +4,7 @@ import axios from "axios";
 import { useAuthContext } from "../../contexts";
 import { FormRow } from "../../components/";
 import { useState, useEffect } from "react";
+import { baseURL } from "../../axios";
 
 const authFormData = {
   password: "",
@@ -100,7 +101,7 @@ export default AuthPage;
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { token, email } = ctx.query;
   try {
-    const { data } = await axios("http://localhost:3000/api/users/show-me", {
+    const { data } = await axios(`${baseURL}/users/show-me`, {
       withCredentials: true,
       headers: {
         Cookie: ctx.req.headers.cookie,

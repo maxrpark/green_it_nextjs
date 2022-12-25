@@ -4,6 +4,7 @@ import axios from "axios";
 import AuthForm from "../../components/auth/AuthForm";
 import { useAuthContext } from "../../contexts";
 import ForgotPasswordForm from "../../components/auth/ForgotPasswordForm";
+import { baseURL } from "../../axios";
 
 const AuthPage: NextPage = () => {
   const { showResetPasswordForm } = useAuthContext();
@@ -23,7 +24,7 @@ export default AuthPage;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    const { data } = await axios("http://localhost:3000/api/users/show-me", {
+    const { data } = await axios(`${baseURL}/show-me`, {
       withCredentials: true,
       headers: {
         Cookie: ctx.req.headers.cookie,
