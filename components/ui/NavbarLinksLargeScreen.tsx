@@ -14,19 +14,18 @@ const NavbarLinksLargeScreen: React.FC = () => {
 
   return (
     <div className='hidden lg:flex justify-end gap-12  items-center '>
-      <NavSubMenu children={<ProductsNav />} name={"products"} url='products' />
-      <NavSubMenu children={<CartItemsNav />} name={"cart"} url='cart' />
+      <NavSubMenu name={"products"} url='products'>
+        <ProductsNav />
+      </NavSubMenu>
+      <NavSubMenu name={"cart"} url='cart'>
+        <CartItemsNav />
+      </NavSubMenu>
       {user?.name ? (
-        <NavSubMenu
-          children={
-            <div className='py-5'>
-              <UserLinks />
-            </div>
-          }
-          name={user.name[0]}
-          url={url}
-          icon
-        />
+        <NavSubMenu name={user.name[0]} url={url} icon>
+          <div className='py-5'>
+            <UserLinks />
+          </div>
+        </NavSubMenu>
       ) : (
         <Link href={"/auth"}> Login</Link>
       )}

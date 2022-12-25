@@ -74,7 +74,7 @@ const AuthPage: NextPage<Props> = ({ token, email }) => {
         />
         {!areSamePassword && (
           <p className=' border-2 border-red-700 text-red-700 rounded-md p-1 text-center text-[14px]'>
-            Passwords don't match.
+            Passwords don&apos;t match.
           </p>
         )}
         {errorMessage && (

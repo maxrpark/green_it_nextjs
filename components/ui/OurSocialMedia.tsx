@@ -18,6 +18,7 @@ const OurSocialMedia: React.FC = () => {
               className='bg-green-200 w-[38px] h-[38px] flex justify-center items-center rounded-full'
               href={link.url}
               target={"_blank"}
+              rel='noreferrer'
               key={link.id}
             >
               <link.name></link.name>

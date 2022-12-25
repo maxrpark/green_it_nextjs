@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { FormRow, Spinner } from "../";
 import { useAuthContext } from "../../contexts";
 
@@ -91,7 +91,7 @@ const ForgotPasswordForm: React.FC = () => {
           Return to sign in
         </button>
         <button onClick={backToRegisterForm}>
-          Don't have an account?
+          Don&apos;t have an account?
           <span className='text-blue-700 cursor-pointer'> Sign up</span>
         </button>
       </div>
