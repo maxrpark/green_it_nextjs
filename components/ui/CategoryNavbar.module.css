@@ -1,0 +1,26 @@
+.category-buttons {
+  transition: all 0.3s linear;
+  @apply font-bold py-2 px-4 text-black;
+}
+
+.plants {
+  @apply bg-green-500 hover:bg-green-400;
+}
+.decoration {
+  @apply bg-blue-500 hover:bg-blue-400;
+}
+.tools {
+  @apply bg-orange-500 hover:bg-orange-400;
+}
+.care {
+  @apply bg-fuchsia-500 hover:bg-fuchsia-400;
+}
+.seeds {
+  @apply bg-green-800 hover:bg-green-700;
+}
+.pots {
+  @apply bg-yellow-800 hover:bg-yellow-700;
+}
+.more {
+  @apply bg-purple-700 hover:bg-purple-600;
+}

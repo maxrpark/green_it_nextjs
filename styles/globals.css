@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 1rem;
+}
+a {
+  background: transparent;
+}
+svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-h {
+  min-height: 70vh;
+}
+
+.section-center {
+  @apply md:container md:mx-auto;
+}
+
+.main-title {
+  @apply text-[56px] m-0 leading-none capitalize;
+}
+
+.quote-rotate {
+  transform: rotate(180deg);
+  margin-left: auto;
+}
+
+.btn-primary {
+  transition: all 0.3s linear;
+  @apply inline-block
+	rounded-main
+	bg-green-main
+	hover:bg-green-900
+	text-black font-bold 
+		py-2 px-4
+	border-green-700 disabled:opacity-70 disabled:!bg-light-gray cursor-pointer capitalize;
+}
+
+.drag-indicator {
+  transform: translateY(-50%);
+  animation: dragMove 1.5s infinite linear;
+  @apply absolute lg:hidden w-[60px] h-[60px] bg-black  right-0 top-1/2  z-50 rounded-full flex justify-center items-center text-white;
+}
+
+@keyframes dragMove {
+  0% {
+    transform: translate(2px, -50%);
+  }
+
+  50% {
+    transform: translate(-2px, -50%);
+  }
+  100% {
+    transform: translate(2px, -50%);
+  }
+}
+
+/* About image section */
+
+.image-container::before,
+.image-container::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  bottom: 100%;
+  height: 50%;
+  width: 50%;
+}
+
+.image-container::before {
+  bottom: -1.7px;
+  left: -1.7px;
+  background: red;
+}
+.image-container::after {
+  top: -1.7px;
+  right: -1.7px;
+  background: green;
+}
+
+/* categoryButtons */
+
+.category-buttons {
+  transition: all 0.3s linear;
+  @apply font-bold py-2 px-4 text-black;
+}
+
+.plants {
+  @apply bg-green-500 hover:bg-green-400;
+}
+.decoration {
+  @apply bg-blue-500 hover:bg-blue-400;
+}
+.tools {
+  @apply bg-orange-500 hover:bg-orange-400;
+}
+.care {
+  @apply bg-fuchsia-500 hover:bg-fuchsia-400;
+}
+.seeds {
+  @apply bg-green-800 hover:bg-green-700;
+}
+.pots {
+  @apply bg-yellow-800 hover:bg-yellow-700;
+}
+.more {
+  @apply bg-purple-700 hover:bg-purple-600;
+}

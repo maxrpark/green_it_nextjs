@@ -1,0 +1,35 @@
+.switcher {
+  @apply relative w-[100px] h-[30px]
+  border-[1px] rounded-[20px];
+}
+
+.input {
+  @apply invisible;
+}
+
+.label {
+  @apply w-full;
+}
+
+.input,
+.label {
+  @apply absolute top-1/2 -translate-y-1/2 left-0;
+}
+.label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+}
+
+.ball {
+  transition: all 0.3s linear;
+  @apply w-[50px] h-[22px] bg-green-main absolute
+    top-1/2 -translate-y-1/2 rounded-full left-[2px] flex justify-center bg-center;
+}
+
+input:checked + label .ball {
+  transform: translate(40px, -50%);
+}

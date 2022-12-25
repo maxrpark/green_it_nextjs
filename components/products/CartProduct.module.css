@@ -1,0 +1,14 @@
+.section-left {
+  @apply w-full p-2 flex flex-col justify-start gap-2;
+}
+
+.section-left__top {
+  @apply flex flex-col justify-between md:flex-row items-center;
+}
+.section-left__top-header {
+  @apply flex flex-col sm:flex-row justify-center items-start gap-2;
+}
+
+.section-left__bottom-single-details {
+  @apply text-[12px];
+}

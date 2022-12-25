@@ -1,0 +1,12 @@
+.aside-wrapper {
+  @apply h-full lg:relative lg:min-h-[70vh] lg:w-[285px] gap-4 bg-green-300 flex-col justify-start items-start p-4 rounded-[20px] lg:rounded-none lg:rounded-tl-[20px];
+}
+
+.sidebar-links {
+  transition: all 0.3s linear;
+  @apply w-full text-start 	h-[36px] hover:bg-green-200 hover:text-green-900 hover:pl-2 rounded-md capitalize;
+}
+
+.active {
+  @apply bg-green-900 text-start font-bold text-white  pl-2 rounded-md;
+}

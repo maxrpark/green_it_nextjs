@@ -1,0 +1,29 @@
+.total-container {
+  @apply p-2 w-full lg:max-w-[358px] h-fit  bg-white sticky top-2;
+}
+
+.discount-section {
+  @apply h-[39px] flex items-center justify-between;
+}
+.discount-section > * {
+  @apply h-full rounded-[5px] p-[10px];
+}
+
+.total-details {
+  @apply border-b 
+  border-light-gray 
+  py-4;
+}
+
+.total-details > p {
+  @apply flex justify-between text-light-gray items-center h-fit;
+}
+.total-details > p > span {
+  @apply text-black;
+}
+.total-details > p:nth-child(even) > span {
+  @apply my-2;
+}
+.order-total {
+  @apply my-4 flex items-center justify-between;
+}
