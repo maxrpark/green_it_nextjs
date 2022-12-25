@@ -34,7 +34,7 @@ const CartTotals: React.FC = () => {
       <p className={styles["order-total"]}>
         Total <span>${total_amount - discount}</span>
       </p>
-      {user.name ? (
+      {user?.name ? (
         <button
           onClick={() => createPaymentIntent(cart)}
           className='btn-primary w-full !rounded'
