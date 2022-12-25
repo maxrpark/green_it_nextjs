@@ -6,14 +6,15 @@ const nextConfig = {
     domains: ["via.placeholder.com", "res.cloudinary.com", "unsplash.it"],
   },
   async rewrites() {
-    return process.env.NODE_ENV === "development"
-      ? [
-          {
-            source: "/api/:path*",
-            destination: "https://green-it-server.onrender.com/api/v1/:path*",
-          },
-        ]
-      : [];
+    // return process.env.NODE_ENV === "development"
+    //   ?
+    [
+      {
+        source: "/api/:path*",
+        destination: "https://green-it-server.onrender.com/api/v1/:path*",
+      },
+    ];
+    // : [];
   },
 };
 

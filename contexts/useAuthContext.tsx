@@ -99,6 +99,9 @@ export const AuthContextProvider: React.FC<Props> = ({ children }) => {
         dispatch({ type: ActionsTypes.REGISTRATION_SUCCESSES });
       } catch (error) {
         console.log(error);
+        alertMessage(
+          "Something went wrong, please reload the page and try again."
+        );
         dispatch({ type: ActionsTypes.TOGGLE_IS_LOADING });
       }
       return;
