@@ -3,6 +3,7 @@ import axios from "axios";
 import { OrderInterface } from "../../ts/";
 import ProfileLayout from "../../components/layout/ProfileLayout";
 import { SectionHeader, SingleDetailRow } from "../../components/";
+import { baseURL } from "../../axios";
 
 interface Props {
   orders: OrderInterface[];
@@ -39,7 +40,7 @@ export default DashboardPage;
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   let orders;
   try {
-    const { data } = await axios(`http://localhost:3000/api/orders/`, {
+    const { data } = await axios(`${baseURL}/api/orders/`, {
       withCredentials: true,
       headers: {
         Cookie: ctx.req.headers.cookie,
