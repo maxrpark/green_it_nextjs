@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "http://localhost:5000/api/v1";
+export const baseURL = "https://green-it-server.onrender.com/api/v1";
 
 export const productsFetch = axios.create({
   baseURL: baseURL + "/products",
