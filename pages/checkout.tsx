@@ -1,5 +1,6 @@
 import axios from "axios";
 import { GetServerSideProps, NextPage } from "next/types";
+import { baseURL } from "../axios";
 import { Steps, CheckoutDetails, CheckoutForm } from "../components";
 import { OrderDetails } from "../ts";
 
@@ -24,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   try {
     const productsItems = JSON.parse(req.cookies.productItems!);
     const { data } = await axios.post(
-      `https://green-it-server.onrender.com/api/orders/stripe-session`,
+      `${baseURL}/orders/stripe-session`,
       productsItems,
       {
         withCredentials: true,
