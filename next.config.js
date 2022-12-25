@@ -10,7 +10,7 @@ const nextConfig = {
       ? [
           {
             source: "/api/:path*",
-            destination: "http://localhost:5000/api/v1/:path*",
+            destination: "https://green-it-server.onrender.com/api/v1/:path*",
           },
         ]
       : [];
