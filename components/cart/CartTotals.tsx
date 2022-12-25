@@ -2,16 +2,23 @@ import { useCartContext } from "../../contexts";
 import styles from "./CartTotals.module.css";
 import { useAuthContext } from "../../contexts/useAuthContext";
 import Link from "next/link";
+import Spinner from "../ui/Spinner";
 
 const CartTotals: React.FC = () => {
-  const { total_amount, discount, shippingCost, createPaymentIntent, cart } =
-    useCartContext();
+  const {
+    total_amount,
+    discount,
+    shippingCost,
+    createPaymentIntent,
+    cart,
+    isLoading,
+  } = useCartContext();
   const { user } = useAuthContext();
 
   return (
     <div className={styles["total-container"]}>
       <h3 className='mb-2 text-light-gray'>Discount code</h3>
-      <div className={styles["discount-section"]}>
+      {/* <div className={styles["discount-section"]}>
         <input
           placeholder='code'
           className='w-full max-w-[235px]  light-gray border'
@@ -19,7 +26,7 @@ const CartTotals: React.FC = () => {
         <button className='flex items-center bg-light-gray h-full'>
           Apply
         </button>
-      </div>
+      </div> */}
       <div className={styles["total-details"]}>
         <p>
           Subtotal <span>${total_amount}</span>
@@ -39,7 +46,7 @@ const CartTotals: React.FC = () => {
           onClick={() => createPaymentIntent(cart)}
           className='btn-primary w-full !rounded'
         >
-          Pay now
+          {isLoading ? <Spinner /> : "Pay now"}
         </button>
       ) : (
         <Link href={"/auth"}>

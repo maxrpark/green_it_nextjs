@@ -51,6 +51,7 @@ const initialState: CartInitialState = {
   shippingCost: 0,
   hasDiscount: false,
   checkoutFormBtn: false,
+  isLoading: false,
 };
 
 const CartContext = createContext({} as CartContext);
@@ -89,6 +90,7 @@ export const CartProvider: FC<Props> = ({ children }) => {
   };
 
   const createPaymentIntent = async (cart: SingleItemOrderInf[]) => {
+    dispatch({ type: ActionsTypes.TOGGLE_CART_LOADING });
     const productItems = cart.map((item) => {
       return {
         product: item._id,
@@ -97,6 +99,7 @@ export const CartProvider: FC<Props> = ({ children }) => {
     });
     const payload = { productItems };
     Cookies.set("productItems", JSON.stringify(payload));
+    dispatch({ type: ActionsTypes.TOGGLE_CART_LOADING });
     router.push("/checkout");
   };
 

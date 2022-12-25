@@ -12,12 +12,12 @@ const OrderTotalsDetail: React.FC<Props> = ({ total, subtotal }) => {
         <p>
           Subtotal <span className='text-black'>{subtotal}</span>
         </p>
-        <p>
+        {/* <p>
           Discount <span>TODO</span>
         </p>
         <p>
           Shipping <span>TODO</span>
-        </p>
+        </p> */}
       </div>
       <p className={styles["order-total"]}>
         Total: <span>{total}</span>

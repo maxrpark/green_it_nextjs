@@ -13,6 +13,9 @@ interface ADD_TO_CART {
 interface COUNT_CART_TOTALS {
   type: ActionsTypes.COUNT_CART_TOTALS;
 }
+interface TOGGLE_CART_LOADING {
+  type: ActionsTypes.TOGGLE_CART_LOADING;
+}
 interface REMOVE_CART_ITEM {
   type: ActionsTypes.REMOVE_CART_ITEM;
   payload: string;
@@ -34,6 +37,7 @@ type CartActions =
   | REMOVE_CART_ITEM
   | TOGGLE_ITEM_AMOUNT
   | ORDER_COMPLETED
-  | TOGGLE_CHECKOUT_BUTTON;
+  | TOGGLE_CHECKOUT_BUTTON
+  | TOGGLE_CART_LOADING;
 
 export default CartActions;

@@ -28,6 +28,7 @@ export interface CartInitialState {
   shippingCost: number;
   hasDiscount: boolean;
   checkoutFormBtn: boolean;
+  isLoading: boolean;
 }
 
 export interface UserInitialState {

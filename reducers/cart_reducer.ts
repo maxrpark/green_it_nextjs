@@ -70,6 +70,11 @@ const cart_reducer = (
         ...state,
         checkoutFormBtn: action.payload,
       };
+    case ActionsTypes.TOGGLE_CART_LOADING:
+      return {
+        ...state,
+        isLoading: !state.isLoading,
+      };
     case ActionsTypes.ORDER_COMPLETED:
       return {
         ...state,
