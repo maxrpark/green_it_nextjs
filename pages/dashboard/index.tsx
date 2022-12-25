@@ -24,7 +24,7 @@ const DashboardPage: React.FC<Props> = ({ orders }) => {
             <SingleDetailRow
               key={order._id}
               mainTitle={order._id!}
-              detailsOne={order.total}
+              detailsOne={`$${order.total}`}
               detailsTwo={order.status}
               url={`/order-details/${order._id!}`}
             />
