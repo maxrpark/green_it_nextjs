@@ -5,6 +5,7 @@ import { SectionHeader, SingleDetailRow } from "../../../components";
 import { ProfileLayout } from "../../../components/layout";
 import axios from "axios";
 import { UserInterface } from "../../../ts/";
+import { baseURL } from "../../../axios";
 
 interface Props {
   users: UserInterface[];
@@ -34,7 +35,7 @@ const AdminUsersList: NextPage<Props> = ({ users }) => {
 export default AdminUsersList;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { data } = await axios("http://localhost:3000/api/users/all-users", {
+  const { data } = await axios(`${baseURL}/users/all-users`, {
     withCredentials: true,
     headers: {
       Cookie: ctx.req.headers.cookie,

@@ -40,7 +40,7 @@ export default DashboardPage;
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   let orders;
   try {
-    const { data } = await axios(`${baseURL}/api/orders/`, {
+    const { data } = await axios(`${baseURL}/orders/`, {
       withCredentials: true,
       headers: {
         Cookie: ctx.req.headers.cookie,

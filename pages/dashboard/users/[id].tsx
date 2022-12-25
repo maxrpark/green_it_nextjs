@@ -4,6 +4,7 @@ import axios from "axios";
 import { ProfileLayout } from "../../../components/layout";
 import { OrderInterface, UserInterface } from "../../../ts/";
 import { SingleDetailRow, CustomBtn } from "../../../components";
+import { baseURL } from "../../../axios";
 
 interface Props {
   user: UserInterface;
@@ -40,17 +41,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   let user;
   let orders; //TODO
   try {
-    const { data } = await axios(
-      `https://green-it-server.onrender.com/api/v1/users/${id}`,
-      {
-        withCredentials: true,
-        headers: {
-          Cookie: ctx.req.headers.cookie,
-        },
-      }
-    );
+    const { data } = await axios(`${baseURL}/users/${id}`, {
+      withCredentials: true,
+      headers: {
+        Cookie: ctx.req.headers.cookie,
+      },
+    });
     const { data: ordersData } = await axios(
-      `https://green-it-server.onrender.com/api/v1/orders/user-orders/${id}`,
+      `${baseURL}/orders/user-orders/${id}`,
       {
         withCredentials: true,
         headers: {

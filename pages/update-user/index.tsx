@@ -4,6 +4,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import { UserInterface } from "../../ts/";
 import { UpdateUserDetailsForm } from "../../components";
 import { ProfileLayout } from "../../components/layout";
+import { baseURL } from "../../axios";
 
 interface Props {
   userInfo: UserInterface;
@@ -33,15 +34,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   );
 
   try {
-    const { data } = await axios(
-      `http://localhost:3000/api/users/${decoded.user.userId}`,
-      {
-        withCredentials: true,
-        headers: {
-          Cookie: req.headers.cookie,
-        },
-      }
-    );
+    const { data } = await axios(`${baseURL}/users/${decoded.user.userId}`, {
+      withCredentials: true,
+      headers: {
+        Cookie: req.headers.cookie,
+      },
+    });
     user = data;
   } catch (error: any) {
     console.log(error.response.data);
