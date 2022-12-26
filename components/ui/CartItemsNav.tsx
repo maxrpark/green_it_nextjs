@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useCartContext } from "../../contexts/useCartContext";
 import { SingleItemOrderInf } from "../../ts/";
+import Image from "next/image";
 
 const CartItemsNav: React.FC = () => {
   const [cartItems, setCartItems] = useState<SingleItemOrderInf[]>([]);
@@ -24,7 +25,14 @@ const CartItemsNav: React.FC = () => {
                 key={item._id}
                 className='flex gap-2 py-4 border-b-2 border-light-gray cursor-pointer'
               >
-                <img className='w-[70px] h-[70px]' src={item.image} alt='' />
+                <div className='w-[70px] h-[70px] relative'>
+                  <Image
+                    layout='fill'
+                    src={item.image}
+                    alt={item.name}
+                    objectFit='cover'
+                  />
+                </div>
                 <div>
                   <p>{item.name}</p>
                   <p>Price: ${item.price}</p>

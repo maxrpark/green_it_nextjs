@@ -40,6 +40,7 @@ enum ActionsTypes {
   // Global
   TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR",
   TOGGLE_MOBILE_NAV = "TOGGLE_MOBILE_NAV",
+  HIDE_TOP_MESSAGE = "HIDE_TOP_MESSAGE",
 }
 
 export default ActionsTypes;

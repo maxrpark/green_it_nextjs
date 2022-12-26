@@ -1,6 +1,5 @@
 import AuthForm from "./auth/AuthForm";
 import ForgotPasswordForm from "./auth/ForgotPasswordForm";
-import VerificationMessage from "./auth/VerificationMessage";
 
 import CartProducts from "./cart/CartProducts";
 import CartTotals from "./cart/CartTotals";
@@ -26,7 +25,6 @@ import CustomBtn from "./ui/CustomBtn";
 import Footer from "./ui/Footer";
 import FormCheckBox from "./ui/FormCheckBox";
 import FormRow from "./ui/FormRow";
-import Spinner from "./ui/Spinner";
 import FormUploadFile from "./ui/FormUploadFile";
 import LinksNavigationComponent from "./ui/LinksNavigationComponent";
 import Navbar from "./ui/Navbar";
@@ -34,19 +32,22 @@ import NavbarLinksLargeScreen from "./ui/NavbarLinksLargeScreen";
 import NavSubMenu from "./ui/NavSubMenu";
 import OurSocialMedia from "./ui/OurSocialMedia";
 import ProductsCarrousel from "./ui/ProductsCarrousel";
+import ProductsListSection from "./ui/ProductsListSection";
 import ProductsNav from "./ui/ProductsNav";
 import SearchInput from "./ui/SearchInput";
 import SectionTitle from "./ui/SectionTitle";
 import SelectRow from "./ui/SelectRow";
+import Spinner from "./ui/Spinner";
 import Steps from "./ui/Steps";
+import TopMessage from "./ui/TopMessage";
 import UpdateUserDetailsForm from "./ui/UpdateUserDetailsForm";
 import UserLinks from "./ui/UserLinks";
 
 import BillIcon from "./icons/BillIcon";
-import IconsBars from "./icons/IconsBars";
 import CloseIcon from "./icons/CloseIcon";
 import FacebookIcon from "./icons/FacebookIcon";
 import HomeIcon from "./icons/HomeIcon";
+import IconsBars from "./icons/IconsBars";
 import InstagramIcon from "./icons/InstagramIcon";
 import QuotesIcon from "./icons/QuotesIcon";
 import SeparatorIcon from "./icons/SeparatorIcon";
@@ -59,10 +60,10 @@ import CategoryNavbar from "./ui/CategoryNavbar";
 import PaginationButtons from "./products/PaginationButtons";
 import ProductCard from "./products/ProductCard";
 import ProductCardWithChildren from "./products/ProductCardWithChildren";
+import ProductHead from "./products/ProductHead";
 import ProductsList from "./products/ProductsList";
 import SingleProductTop from "./products/SingleProductTop";
 import TypesButtons from "./products/TypesButtons";
-import ProductHead from "./products/ProductHead";
 
 import AboutDetails from "./about/AboutDetails";
 import AboutGallery from "./about/AboutGallery";
@@ -70,7 +71,6 @@ import ImageSection from "./about/ImageSection";
 
 import GridSection from "./home/GridSection";
 import Hero from "./home/Hero";
-import ProductsListSection from "./ui/ProductsListSection";
 import MobileNavBar from "./ui/MobileNavBar";
 
 export {
@@ -88,13 +88,13 @@ export {
   CheckoutDetails,
   CheckoutForm,
   CheckoutItems,
-  LinksNavigationComponent,
   CloseIcon,
   ContactDetails,
   ContactForm,
   CustomBtn,
   FacebookIcon,
   Footer,
+  ForgotPasswordForm,
   FormCheckBox,
   FormRow,
   FormUploadFile,
@@ -104,21 +104,20 @@ export {
   IconsBars,
   ImageSection,
   InstagramIcon,
+  LinksNavigationComponent,
   MobileNavBar,
   Navbar,
   NavbarLinksLargeScreen,
-  ForgotPasswordForm,
   NavSubMenu,
-  Spinner,
   OrderTotalsDetail,
   OurSocialMedia,
   PaginationButtons,
   ProductCard,
   ProductCardWithChildren,
+  ProductHead,
   ProductsCarrousel,
   ProductsList,
   ProductsListSection,
-  ProductHead,
   ProductsNav,
   QuotesIcon,
   SearchInput,
@@ -130,8 +129,10 @@ export {
   SingleDetailRow,
   SingleProductForm,
   SingleProductTop,
+  Spinner,
   Steps,
   StripeCheckout,
+  TopMessage,
   TrashIcon,
   TwitterIcon,
   TypesButtons,

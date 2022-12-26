@@ -52,4 +52,5 @@ export interface AdminInitialState {
 export interface GlobalInitialState {
   showSidebar: boolean;
   showMobileNavBar: boolean;
+  showTopMessage: boolean;
 }

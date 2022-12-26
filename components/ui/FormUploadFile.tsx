@@ -1,4 +1,4 @@
-import axios from "axios";
+import Image from "next/image";
 import { useRef } from "react";
 import { useAdminContext } from "../../contexts";
 
@@ -11,13 +11,9 @@ const FormUploadFile: React.FC<Props> = ({ image }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <section className='flex flex-col justify-center items-center gap-2'>
+    <section className='flex flex-col justify-center items-center gap-2 w-full  max-w-[300px] h-[300px]  m-auto  relative'>
       {image && (
-        <img
-          src={image}
-          className='w-full max-w-[300px] m-auto object-contain'
-          alt=''
-        />
+        <Image layout='fill' src={image} alt='flowers' objectFit='contain' />
       )}
       <button
         type='button'

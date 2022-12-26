@@ -13,6 +13,8 @@ const global_reducer = (
       return { ...state, showSidebar: !state.showSidebar };
     case ActionsTypes.TOGGLE_MOBILE_NAV:
       return { ...state, showMobileNavBar: !state.showMobileNavBar };
+    case ActionsTypes.HIDE_TOP_MESSAGE:
+      return { ...state, showTopMessage: false };
 
     default:
       return state;

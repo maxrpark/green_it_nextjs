@@ -15,11 +15,13 @@ interface Props {
 interface GlobalContextInterface extends GlobalInitialState {
   toggleSidebar: () => void;
   toggleMobileNav: () => void;
+  hideTopMessage: () => void;
 }
 
 const initialState: GlobalInitialState = {
   showSidebar: false,
   showMobileNavBar: false,
+  showTopMessage: true,
 };
 
 const GlobalContext = createContext({} as GlobalContextInterface);
@@ -37,6 +39,10 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     dispatch({ type: ActionsTypes.TOGGLE_MOBILE_NAV });
   };
 
+  const hideTopMessage = () => {
+    dispatch({ type: ActionsTypes.HIDE_TOP_MESSAGE });
+  };
+
   useEffect(() => {
     if (state.showMobileNavBar) {
       document.body.style.overflow = "hidden";
@@ -46,7 +52,7 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
   }, [state.showMobileNavBar]);
   return (
     <GlobalContext.Provider
-      value={{ ...state, toggleSidebar, toggleMobileNav }}
+      value={{ ...state, toggleSidebar, toggleMobileNav, hideTopMessage }}
     >
       {children}
     </GlobalContext.Provider>

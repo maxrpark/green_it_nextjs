@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useCartContext } from "../../contexts";
 import TrashIcon from "../icons/Trash";
 import AmountButtons from "../products/AmountButtons";
@@ -23,11 +24,10 @@ const ProductCardWithChildren: React.FC<Props> = ({
   const { removeCartItem, toggleAmount } = useCartContext();
   return (
     <div key={_id} className=' md:h-[150px]  flex bg-white '>
-      <img
-        className='w-full max-w-[100px] sm:max-w-[236px] h-fill max-h-[200px] md:max-h-[150px] object-cover'
-        src={image}
-        alt=''
-      />
+      <div className='w-full max-w-[100px] sm:max-w-[236px] h-fill max-h-[200px] md:max-h-[150px] object-cover relative'>
+        <Image layout='fill' src={image} objectFit='cover' />
+      </div>
+
       <div className={styles["section-left"]}>
         <div className={styles["section-left__top"]}>
           <div className={styles["section-left__top-header"]}>

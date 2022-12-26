@@ -5,6 +5,7 @@ import { useAuthContext } from "../../contexts";
 import { FormRow } from "../../components/";
 import { useState, useEffect } from "react";
 import { baseURL } from "../../axios";
+import Image from "next/image";
 
 const authFormData = {
   password: "",
@@ -49,11 +50,17 @@ const AuthPage: NextPage<Props> = ({ token, email }) => {
 
   return (
     <div className='grid lg:grid-cols-2  lg:justify-center items-center min-h-[70vh]'>
-      <img
-        className='hidden lg:block  object-cover h-[90vh] '
-        src='/img/hero/hero_bg.jpg'
-        alt=''
-      />
+      <div
+        className="hidden lg:block  object-cover h-[90vh] '
+        src='/img/hero/hero_bg.jpg relative"
+      >
+        <Image
+          src='/img/hero/hero_bg.jpg'
+          layout='fill'
+          alt='flowers'
+          objectFit='cover'
+        />
+      </div>
       <form className='flex flex-col gap-4 max-w-xs m-auto w-full'>
         <h2 className='text-center text-[36px] font-bold capitalize'>
           Reset Password
