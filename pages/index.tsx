@@ -47,20 +47,5 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     },
   };
 };
-// export const getServerSideProps: GetServerSideProps = async (ctx) => {
-//   try {
-//     const { data: products } = await axios<ProductListInt[]>(
-//       `${baseURL}/products/featured/`
-//     );
-//   } catch (error) {
-//     console.log(error);
-//   }
-
-//   return {
-//     props: {
-//       products,
-//     },
-//   };
-// };
 
 export default Home;

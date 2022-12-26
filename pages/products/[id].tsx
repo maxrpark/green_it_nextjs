@@ -19,6 +19,7 @@ import {
   BreadCrumbs,
 } from "../../components";
 import { baseURL } from "../../axios";
+import ProductHead from "../../components/products/ProductHead";
 
 interface Props {
   product: ProductInterface;
@@ -56,36 +57,43 @@ const SingleProduct: NextPage<Props> = ({ product, relatedProducts }) => {
   }, [product._id]);
 
   return (
-    <div className='lg:p-8 '>
-      <BreadCrumbs name={product.name} />
-      {user?.role == "admin" || user?.role == "admin" ? (
-        <Link href={`/dashboard/products/${product._id}`}>
-          <button className='btn-primary !bg-red-300 !ml-auto !block'>
-            edit product
+    <>
+      <ProductHead
+        dsc={product.short_desc}
+        img={product.image}
+        name={product.name}
+      />
+      <div className='lg:p-8 '>
+        <BreadCrumbs name={product.name} />
+        {user?.role == "admin" || user?.role == "admin" ? (
+          <Link href={`/dashboard/products/${product._id}`}>
+            <button className='btn-primary !bg-red-300 !ml-auto !block'>
+              edit product
+            </button>
+          </Link>
+        ) : (
+          <></>
+        )}
+        <SingleProductTop product={product} />
+        <section className='flex flex-col justify-center items-center gap-3'>
+          <AmountButtons
+            increase={increase}
+            decrease={decrease}
+            amount={amount}
+          />
+          <button onClick={addItem} className='btn-primary'>
+            Add to cart
           </button>
-        </Link>
-      ) : (
-        <></>
-      )}
-      <SingleProductTop product={product} />
-      <section className='flex flex-col justify-center items-center gap-3'>
-        <AmountButtons
-          increase={increase}
-          decrease={decrease}
-          amount={amount}
-        />
-        <button onClick={addItem} className='btn-primary'>
-          Add to cart
-        </button>
-      </section>
-      <div className='flex flex-col gap-[50px] mt-[50px]'>
-        <SectionTitle title={"Description"} text={product.long_description} />
-        <div>
-          <SectionTitle title={"Related Products"} text={text} />
-          <ProductsListSection productsList={relatedProducts} />
+        </section>
+        <div className='flex flex-col gap-[50px] mt-[50px]'>
+          <SectionTitle title={"Description"} text={product.long_description} />
+          <div>
+            <SectionTitle title={"Related Products"} text={text} />
+            <ProductsListSection productsList={relatedProducts} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

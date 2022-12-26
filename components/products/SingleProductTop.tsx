@@ -26,9 +26,9 @@ const SingleProductTop: React.FC<Props> = ({ product }) => {
           </p>
         </div>
 
-        <div className='flex gap-16'>
-          <h2 className='main-title'>{product.name}</h2>
-          <h2 className='main-title'>${product.price}</h2>
+        <div className='flex gap-4 lg:gap-16 flex-wrap'>
+          <h2 className='main-title text-center'>{product.name}</h2>
+          <h2 className='main-title text-center'>${product.price}</h2>
         </div>
         <p>{product.short_desc}</p>
       </div>

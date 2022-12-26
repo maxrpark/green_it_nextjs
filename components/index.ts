@@ -62,6 +62,7 @@ import ProductCardWithChildren from "./products/ProductCardWithChildren";
 import ProductsList from "./products/ProductsList";
 import SingleProductTop from "./products/SingleProductTop";
 import TypesButtons from "./products/TypesButtons";
+import ProductHead from "./products/ProductHead";
 
 import AboutDetails from "./about/AboutDetails";
 import AboutGallery from "./about/AboutGallery";
@@ -117,6 +118,7 @@ export {
   ProductsCarrousel,
   ProductsList,
   ProductsListSection,
+  ProductHead,
   ProductsNav,
   QuotesIcon,
   SearchInput,

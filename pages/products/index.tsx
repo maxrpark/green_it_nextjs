@@ -81,31 +81,3 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     },
   };
 };
-
-// export const getServerSideProps: GetServerSideProps = async (ctx) => {
-//   const { query } = ctx.query;
-
-//   let querySearch = "";
-//   let data = { products: [], totalProducts: 0, numberOfPages: 1 };
-//   try {
-//     if (query) {
-//       const res = await productsFetch(`/?page=1&limit=12&name=${query}`);
-//       data = res.data;
-//       querySearch = query as string;
-//     } else {
-//       const res = await productsFetch("/?page=1&limit=12");
-//       data = res.data;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-
-//   return {
-//     props: {
-//       productsList: data.products,
-//       totalProducts: data.totalProducts,
-//       totalNumberOfPages: data.numberOfPages,
-//       query: querySearch,
-//     },
-//   };
-// };
