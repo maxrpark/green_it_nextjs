@@ -1,9 +1,9 @@
 import type { GetServerSideProps, NextPage } from "next";
 import axios from "axios";
-import { useCartContext } from "../../contexts";
 import { OrderDetails } from "../../ts/interfaces/globalInterfaces";
 import { CheckoutItems, OrderTotalsDetail } from "../../components";
 import { baseURL } from "../../axios";
+import Image from "next/image";
 
 interface Props {
   orderSummary: OrderDetails;
@@ -12,8 +12,8 @@ interface Props {
 const OrderCompletedPage: NextPage<Props> = ({ orderSummary }) => {
   return (
     <div className='lg:grid grid-cols-2 gap-4 mt-7'>
-      <section>
-        <img src='/img/hero/hero_bg.jpg' alt='flowers' className='h-full' />
+      <section className='h-full relative'>
+        <Image src='/img/hero/hero_bg.jpg' layout='fill' alt='flowers' />
       </section>
       <div className='flex flex-col gap-6'>
         <section className='flex flex-col gap-2'>

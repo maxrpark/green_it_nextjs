@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SingleItemOrderInf } from "../../ts/";
 interface Props {
   orderItems: SingleItemOrderInf[];
@@ -10,11 +11,15 @@ const CheckoutItems: React.FC<Props> = ({ orderItems }) => {
         return (
           <div key={item.name}>
             <div className='flex my-2 gap-2'>
-              <img
-                className='w-[59px] h-[59px] object-cover'
-                src={item.image}
-                alt=''
-              />
+              <div className='w-[59px] h-[59px] relative'>
+                <Image
+                  layout='fill'
+                  src={item.image}
+                  alt={item.name}
+                  objectFit='cover'
+                />
+              </div>
+
               <div className='flex flex-col justify-between'>
                 <p className='text-[12px]'>{item.name}</p>
                 <div>

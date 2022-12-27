@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BillIcon } from "../";
 
@@ -27,7 +28,14 @@ const SingleDetailRow: React.FC<Props> = ({
               {!img ? (
                 <BillIcon />
               ) : (
-                <img src={img} className='w-[50px] h-[50px]' />
+                <div className='w-[50px] h-[50px] relative'>
+                  <Image
+                    layout='fill'
+                    src={img}
+                    objectFit='cover'
+                    alt='product-img'
+                  />
+                </div>
               )}
             </>
           ) : (

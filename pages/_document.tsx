@@ -29,21 +29,7 @@ class MyDocument extends Document {
     return (
       <Html>
         {/* <Head /> */}
-        <Head>
-          <title>Green it</title>
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
-
-          <meta property='og:title' content='Green it' />
-          <meta
-            property='og:description'
-            content={`The middle point between you and your dream garden`}
-          />
-          <meta property='og:image' content='/static/img/hero/hero_one.jpg' />
-          <meta
-            name='description'
-            content={`The middle point between you and your dream garden`}
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

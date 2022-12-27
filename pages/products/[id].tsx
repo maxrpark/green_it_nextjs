@@ -85,7 +85,7 @@ const SingleProduct: NextPage<Props> = ({ product, relatedProducts }) => {
             Add to cart
           </button>
         </section>
-        <div className='flex flex-col gap-[50px] mt-[50px]'>
+        <div className='flex flex-col gap-[50px] mt-40px]'>
           <SectionTitle title={"Description"} text={product.long_description} />
           <div>
             <SectionTitle title={"Related Products"} text={text} />

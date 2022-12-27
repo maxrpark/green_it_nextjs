@@ -25,7 +25,7 @@ const ProductCardWithChildren: React.FC<Props> = ({
   return (
     <div key={_id} className=' md:h-[150px]  flex bg-white '>
       <div className='w-full max-w-[100px] sm:max-w-[236px] h-fill max-h-[200px] md:max-h-[150px] object-cover relative'>
-        <Image layout='fill' src={image} objectFit='cover' />
+        <Image layout='fill' src={image} objectFit='cover' alt={name} />
       </div>
 
       <div className={styles["section-left"]}>

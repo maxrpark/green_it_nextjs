@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import { ProductsNav, NavSubMenu, UserLinks, CartItemsNav } from "../";
-import { useAuthContext } from "../../contexts/useAuthContext";
+import { useAuthContext } from "../../contexts/";
 
 const NavbarLinksLargeScreen: React.FC = () => {
   const { user } = useAuthContext();

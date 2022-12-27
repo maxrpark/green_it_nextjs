@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FormRow } from "../";
 import { useAuthContext } from "../../contexts";
 import VerificationMessage from "./VerificationMessage";
+import AutoLoginButtons from "./AutoLoginButtons";
 
 const authFormData = {
   name: "",
@@ -91,13 +92,14 @@ const AuthForm: React.FC = () => {
       <button onClick={submitAuthForm} className='btn-primary cursor-pointer'>
         {!isUser ? "register" : "login"}
       </button>
-      <button className='cursor-pointer'>
+      <button type='button' className='cursor-pointer'>
         {isUser ? "Don't have an account yet?" : "Already have an account"}
         {", "}
         <span onClick={showLogInOrRegisterForm} className='text-blue-700'>
           {isUser ? "register" : "login"}.
         </span>
       </button>
+      <AutoLoginButtons />
     </form>
   );
 };

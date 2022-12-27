@@ -13,7 +13,7 @@ const ImageSection: React.FC<Props> = ({ sectionTitle, img, quote }) => {
   return (
     <section className='lg:grid grid-cols-2 '>
       <div className='image-container relative flex justify-center items-center p-2 bg-white lg:w-[358px] lg:h-[358px] m-auto '>
-        <img className=' h-full ' src={img} alt='' />
+        <img className=' h-full ' src={img} alt='image-cover' />
       </div>
       <div className=' '>
         <div className='my-5 px-2'>

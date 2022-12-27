@@ -24,13 +24,20 @@ interface UpdateUserParams {
   endPoint: string;
 }
 
+interface FormParams {
+  name?: string;
+  email: string;
+  password: string;
+}
+
 interface AuthFormParams {
-  authForm: {
-    name?: string;
-    email: string;
-    password: string;
-  };
+  authForm: FormParams;
   endPoint: string;
+}
+interface ResetPasswordParams {
+  token: string;
+  email: string;
+  password: string;
 }
 interface ResetPasswordParams {
   token: string;
@@ -48,6 +55,7 @@ interface AuthContext extends UserInitialState {
   backToRegisterForm: () => void;
   forgotPassword: (email: string) => void;
   resetPassword: ({ email, token, password }: ResetPasswordParams) => void;
+  logInTestAccounts: (email: string) => void;
 }
 
 const AuthContext = createContext({} as AuthContext);
@@ -116,6 +124,23 @@ export const AuthContextProvider: React.FC<Props> = ({ children }) => {
       );
       dispatch({ type: ActionsTypes.SET_USER, payload: data.user! });
       if (data.user?.role == "admin") return router.push("/dashboard");
+      router.push("/my-profile");
+    } catch (error: any) {
+      console.log(error.response.data);
+      dispatch({ type: ActionsTypes.TOGGLE_IS_LOADING });
+      alertMessage(error.response.data.msg);
+    }
+  };
+  const logInTestAccounts = async (email: string) => {
+    try {
+      dispatch({ type: ActionsTypes.TOGGLE_IS_LOADING });
+      const { data } = await axios.post(`api/auth/login`, {
+        email,
+        password: "secret",
+      });
+      dispatch({ type: ActionsTypes.SET_USER, payload: data.user! });
+      if (data.user?.role == "admin" || data.user?.role == "supervisor")
+        return router.push("/dashboard");
       router.push("/my-profile");
     } catch (error: any) {
       console.log(error.response.data);
@@ -192,7 +217,6 @@ export const AuthContextProvider: React.FC<Props> = ({ children }) => {
       dispatch({ type: ActionsTypes.SENT_PASSWORD_EMAIL });
     } catch (error: any) {
       dispatch({ type: ActionsTypes.TOGGLE_IS_LOADING });
-
       console.log(error);
     }
   };
@@ -244,6 +268,7 @@ export const AuthContextProvider: React.FC<Props> = ({ children }) => {
         showLogInOrRegisterForm,
         resetPassword,
         forgotPassword,
+        logInTestAccounts,
       }}
     >
       {children}

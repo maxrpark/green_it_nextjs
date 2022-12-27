@@ -18,7 +18,12 @@ const AboutDetails: React.FC<Props> = ({ sectionTitle, details }) => {
               className='flex justify-start items-center gap-8 max-w-2xl px-4 py-4'
             >
               <div className=' w-[100px] h-[100px] rounded-full object-cover relative overflow-hidden'>
-                <Image src={item.img!} layout='fill' objectFit='cover' />
+                <Image
+                  src={item.img!}
+                  layout='fill'
+                  objectFit='cover'
+                  alt={item.title}
+                />
               </div>
               <div className='flex flex-col gap-2 self-start justify-between'>
                 <h3 className='bold text-2xl'>{item.title}</h3>
