@@ -5,6 +5,7 @@ import { ProfileLayout } from "../../../components/layout";
 import { OrderInterface, UserInterface } from "../../../ts/";
 import { SingleDetailRow, CustomBtn } from "../../../components";
 import { baseURL } from "../../../axios";
+import SectionHeader from "../../../components/dashboard/SectionHeader";
 
 interface Props {
   user: UserInterface;
@@ -12,22 +13,41 @@ interface Props {
 }
 
 const UserProfile: NextPage<Props> = ({ user, orders }) => {
+  console.log(user);
+
   return (
     <ProfileLayout>
       <div className='lg:p-8 '>
-        {user.name}
         <CustomBtn path={"/dashboard/users"} />
-        {orders.map((order) => {
-          return (
-            <SingleDetailRow
-              key={order._id}
-              mainTitle={order._id!}
-              detailsOne={order.total}
-              detailsTwo={order.status}
-              url={`/order-details/${order._id!}`}
-            />
-          );
-        })}
+        <h2 className='mt-9 mb-3 px-2 text-[24px] font-semibold capitalize'>
+          User details
+        </h2>
+        <SectionHeader mainTitle='email' detailsOne='name' detailsTwo='role' />
+        <SingleDetailRow
+          mainTitle={user.email}
+          detailsOne={user.name}
+          detailsTwo={user.role}
+          url={`/dashboard/users/${user._id}`}
+          isUserRow
+        />
+        {orders.length > 0 && (
+          <>
+            <h2 className='mt-9 mb-3 px-2 text-[24px] font-semibold capitalize'>
+              User orders
+            </h2>
+            {orders.map((order) => {
+              return (
+                <SingleDetailRow
+                  key={order._id}
+                  mainTitle={order._id!}
+                  detailsOne={`$${order.total}`}
+                  detailsTwo={order.status}
+                  url={`/order-details/${order._id!}`}
+                />
+              );
+            })}
+          </>
+        )}
       </div>
     </ProfileLayout>
   );
