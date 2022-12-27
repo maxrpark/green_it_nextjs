@@ -14,8 +14,11 @@ const MainLayout: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     showMe();
   }, []);
+
   return (
-    <>
+    <section className='overflow-hidden'>
+      {/* <div className='h-[200px] w-[110%] bg-green-100 absolute rotate-12 top-0 left-0 opacity-30 origin-top-left -z-50 '></div>
+      <div className='h-[200px] w-[110%] bg-green-100 absolute rotate-12 top-[60%] left-0 opacity-30 origin-top-left -z-50 '></div> */}
       {showTopMessage && <TopMessage />}
 
       <Navbar />
@@ -24,7 +27,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
         {children}
       </main>
       <Footer />
-    </>
+    </section>
   );
 };
 
