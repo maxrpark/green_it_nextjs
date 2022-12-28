@@ -16,7 +16,7 @@ const PaginationButtons: React.FC<Props> = ({ paginationFunction }) => {
     return idx + 1;
   });
   return (
-    <div className='w-full flex justify-center gap-11 mt-10'>
+    <div className='w-full flex justify-center gap-11 my-16'>
       <button
         className={`${currentPage == 1 && "opacity-50"}`}
         disabled={currentPage == 1}

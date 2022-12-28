@@ -13,6 +13,9 @@ svg {
   justify-content: center;
   align-items: center;
 }
+img {
+  object-fit: cover;
+}
 
 .page-h {
   min-height: 70vh;

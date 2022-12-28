@@ -15,7 +15,7 @@ const SingleProductTop: React.FC<Props> = ({ product }) => {
           alt={product.name}
           layout='fill'
           objectFit='cover'
-        ></Image>
+        />
       </div>
       <div className='flex flex-col gap-2 px-2'>
         <div className='flex gap-2 '>
