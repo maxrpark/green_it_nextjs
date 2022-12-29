@@ -20,12 +20,12 @@ const SingleProductTop: React.FC<Props> = ({ product }) => {
       <div className='flex flex-col gap-2 px-2'>
         <div className='flex gap-2 '>
           <Link href={`/products/category/${product.category}`}>
-            <p className='bg-green-200 flex justify-center items-center w-fit px-2 py-[2px] rounded-full cursor-pointer hover:bg-green-400 transition-all '>
+            <p className='bg-green-200 flex justify-center items-center w-fit px-2 py-[2px] rounded-full cursor-pointer hover:bg-green-400 transition-all capitalize'>
               {product.category}
             </p>
           </Link>
           <Link href={`/products/types/${product.type}`}>
-            <p className='bg-green-200 flex justify-center items-center w-fit px-2 py-[2px] rounded-full cursor-pointer hover:bg-green-400 transition-all '>
+            <p className='bg-green-200 flex justify-center items-center w-fit px-2 py-[2px] rounded-full cursor-pointer hover:bg-green-400 transition-all capitalize'>
               {product.type}
             </p>
           </Link>

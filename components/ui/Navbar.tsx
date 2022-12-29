@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { useAuthContext } from "../../contexts";
 import { useRouter } from "next/router";
 import { useGlobalContext } from "../../contexts/useGlobalContext";
 import { SearchInput, NavbarLinksLargeScreen, IconsBars } from "../";
 
 const Navbar: React.FC = () => {
-  const { user } = useAuthContext();
   const { toggleMobileNav } = useGlobalContext();
 
   const router = useRouter();

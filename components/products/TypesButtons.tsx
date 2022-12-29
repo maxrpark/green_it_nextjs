@@ -19,7 +19,7 @@ const TypesButtons: React.FC = () => {
         return (
           <button
             key={type}
-            className={`text-green-500 border-green-500 py-1 px-2 text-[17px] md:border ${
+            className={`text-green-500 capitalize border-green-500 py-1 px-2 text-[17px] md:border ${
               type == selectedType && "bg-green-500 text-white transition-all"
             }`}
             onClick={handleClick}

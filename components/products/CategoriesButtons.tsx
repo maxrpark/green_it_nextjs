@@ -20,7 +20,7 @@ const CategoriesButtons: React.FC = () => {
           return (
             <button
               key={category}
-              className={`category-buttons ${category.toLowerCase()} bg-green-200 h-11 w-full ${
+              className={`category-buttons capitalize ${category.toLowerCase()} bg-green-200 h-11 w-full ${
                 category === selectedCategory &&
                 "!bg-transparent border-current border"
               }`}

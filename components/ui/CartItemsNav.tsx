@@ -13,10 +13,7 @@ const CartItemsNav: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className='py-2
-    '
-    >
+    <div className='py-2'>
       <div>
         {cartItems.map((item) => {
           return (
@@ -43,12 +40,20 @@ const CartItemsNav: React.FC = () => {
           );
         })}
       </div>
-      <div className='flex flex-col py-4 gap-2'>
-        <h2 className='font-bold text-center'>Total $ {total_amount}</h2>
-        <Link href={"/cart"}>
-          <button className='bg-black p-2 w-full text-white'>Go to cart</button>
-        </Link>
-      </div>
+      {cartItems.length > 0 ? (
+        <div className='flex flex-col py-4 gap-2'>
+          <h2 className='font-bold text-center'>Total $ {total_amount}</h2>
+          <Link href={"/cart"}>
+            <button className='bg-black p-2 w-full text-white'>
+              Go to cart
+            </button>
+          </Link>
+        </div>
+      ) : (
+        <div className='flex flex-col py-4 gap-2'>
+          <h2 className='font-bold text-center'>Your cart is empty</h2>
+        </div>
+      )}
     </div>
   );
 };

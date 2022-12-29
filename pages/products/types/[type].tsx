@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
+import axios from "axios";
 import { BreadCrumbs, ProductsList } from "../../../components";
 import { useProductsContext } from "../../../contexts/useProductsContext";
 
-import axios from "axios";
 import { ProductInterface } from "../../../ts/";
 import { baseURL } from "../../../axios";
 
