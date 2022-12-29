@@ -64,10 +64,7 @@ const ProductsCarrousel: React.FC<Props> = ({ products }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mainContainer.current]);
   return (
-    <div
-      ref={addMainContainerToRef}
-      className='container relative lg:w-fit overflow-hidden'
-    >
+    <div ref={addMainContainerToRef} className='container relative lg:w-fit'>
       <div ref={addCirclesToRef} className='drag-indicator'>
         <p className=''>Drag</p>
       </div>

@@ -10,7 +10,7 @@ interface Props {
 const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <Link href={`/products/${product._id}`}>
-      <div className='bg-white my-shadow  flex-shrink-0 max-w-[220px] h-[270px] cursor-pointer '>
+      <div className='bg-white my-shadow  flex-shrink-0 max-w-[220px] h-[270px] cursor-pointer overflow-hidden '>
         <figure className='flex'>
           <Image
             src={product.image}

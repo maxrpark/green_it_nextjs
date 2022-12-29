@@ -79,5 +79,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       totalProducts: data.totalProducts,
       totalNumberOfPages: data.numberOfPages,
     },
+    revalidate: 10, // In seconds
   };
 };

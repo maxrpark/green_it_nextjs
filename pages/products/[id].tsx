@@ -134,5 +134,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       product: data,
       relatedProducts,
     },
+    revalidate: 10, // In seconds
   };
 };
