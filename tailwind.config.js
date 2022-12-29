@@ -10,6 +10,11 @@ module.exports = {
         "green-main": "#86EFAC",
         "light-gray": "#D9D9D9",
       },
+      boxShadow: {
+        "my-shadow": "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+        "my-shadow-two":
+          "rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px",
+      },
       borderRadius: {
         main: "10px",
       },

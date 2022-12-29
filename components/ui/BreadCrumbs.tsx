@@ -11,7 +11,7 @@ const BreadCrumbs: React.FC<Props> = ({ name }) => {
   let pathName = router.pathname.split("/")[1];
 
   return (
-    <div className='flex items-center bg-white gap-[10px] p-[10px] w-fit rounded-[20px] shadow-xl  mb-16 '>
+    <div className='flex items-center bg-white gap-[10px] p-[10px] w-fit rounded-[20px] shadow-my-shadow-two  mb-16 '>
       <Link href={`/`}>
         <a>
           <HomeIcon />
