@@ -1,6 +1,6 @@
 # Green it
 
-[Visit](https://green-it-nextjs.vercel.app/)
+(Visit)[https://green-it-nextjs.vercel.app/]
 
 ## E-commerce store Green it
 
@@ -9,7 +9,7 @@ An online store for plants, decorations, and products for the garden.
 ## Frontend:
 
 - Next.js
-- Repo: [https://github.com/maxrpark/green_it_nextjs](https://github.com/maxrpark/green_it_nextjs)
+- Repo: (https://github.com/maxrpark/green_it_nextjs9[https://github.com/maxrpark/green_it_nextjs]
 - Deploy: Vercel
 
 # Backend:
